@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: https://gems.ruby-china.com/
   specs:
     Ascii85 (1.1.1)
     addressable (2.8.7)
@@ -205,4 +205,4 @@ DEPENDENCIES
   jekyll-theme-chirpy (~> 7.0, >= 7.0.1)
 
 BUNDLED WITH
-   2.5.16
+   2.5.14
