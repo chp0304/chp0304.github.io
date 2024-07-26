@@ -2,21 +2,123 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://localhost:4000/</id>
-  <title>Chirpy</title>
-  <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2024-07-25T23:25:40+08:00</updated>
+  <title>I am CHP</title>
+  <subtitle>This is chp's blog!</subtitle>
+  <updated>2024-07-26T15:00:19+08:00</updated>
   <author>
-    <name>your_full_name</name>
+    <name>chp</name>
     <uri>http://localhost:4000/</uri>
   </author>
   <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="en"
     href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
-  <rights> © 2024 your_full_name </rights>
+  <rights> © 2024 chp </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Kafka安装</title>
+    <link href="http://localhost:4000/posts/Kafka_chpater2/" rel="alternate" type="text/html" title="Kafka安装" />
+    <published>2024-07-26T22:53:12+08:00</published>
+  
+    <updated>2024-07-26T22:53:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Kafka_chpater2/</id>
+    <content src="http://localhost:4000/posts/Kafka_chpater2/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="Kafka" />
+    
+  
+
+  <summary>安装kafka
+
+安装依赖
+
+
+  
+    安装java依赖
+
+    wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u412-b08/openlogic-openjdk-8u412-b08-linux-x64.tar.gz # 安装jdk8
+    
+  
+  
+    安装zookeeper依赖
+
+    wget https://dlcdn.apache.org/zookeeper/zookeeper-3.8.4/apache-zookeeper-3.8.4-bin.tar.gz
+    
+  
+
+
+安装kafka
+
+  wget https://dlcdn.apache.org/kafka/3.7.1/kafka_2.13-3.7.1.tgz
+
+
+影响kafka性能的因素
+
+
+  磁盘吞吐量...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Kafka基本概念</title>
+    <link href="http://localhost:4000/posts/Kafka_chpater1/" rel="alternate" type="text/html" title="Kafka基本概念" />
+    <published>2024-07-26T18:55:12+08:00</published>
+  
+    <updated>2024-07-26T18:55:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Kafka_chpater1/</id>
+    <content src="http://localhost:4000/posts/Kafka_chpater1/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="Kafka" />
+    
+  
+
+  <summary>基本概念
+
+消息和批次
+
+
+  kafka的消息由字节组成，消息里面的数据没有特别的格式或者含义。
+  效益可以有一个可选的元数据——key（键），用于为消息选择分区。
+  kafka消息是分批次写入的kafka，这些消息属于用一个主题或者分区。
+
+
+主题和分区
+
+
+  kafka消息通过主题进行分类，一个主题可以分为多个分区，同一个主题的不同分区可以分布在不同的服务器上。消息以FIFO的方式写入分区，以FIFO的方式读取。
+
+
+
+生产者和消费者
+
+
+  
+    生产者：发布一个消息到特定的主题上，但不关心特定消息会被写到那个分区上。
+  
+  
+    消费者：消费者订阅一个或多个主题，并按照消息生成的顺序读取他们。并通过一种元数据——偏移量来区分已经读取过的消息。
+  
+  
+    消费者群组：共同读取同一个主题的消费者构成一个消费者群组。群组保证每个分区只能被一个消费者使用...</summary>
+
+  </entry>
 
 </feed>
 
