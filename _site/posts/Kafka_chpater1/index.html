@@ -1105,6 +1105,27 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/Kafka_chpater2kafka_chapter3/">Chapter3-生产者</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/Kafka_chpater2kafka_chapter4/">Chapter4-消费者</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/Kafka_chpater2kafka_chapter5/">Chapter5-深入Kafka</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/Kafka_chpater2/">Kafka安装</a>
         </li>
       
@@ -1221,6 +1242,42 @@
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1236,7 +1293,7 @@
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/Kafka_chpater2/" class="post-preview card h-100">
+          <a href="/posts/Kafka_chpater2kafka_chapter5/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1248,30 +1305,109 @@
 
 <time
   
-  data-ts="1722005592"
+  data-ts="1722284112"
   data-df="ll"
   
 >
-  Jul 26, 2024
+  Jul 30, 2024
 </time>
 
-              <h4 class="pt-0 my-2">Kafka安装</h4>
+              <h4 class="pt-0 my-2">Chapter5-深入Kafka</h4>
               <div class="text-muted">
-                <p>安装kafka
+                <p>深入Kafka
 
-安装依赖
+控制器
+
+控制器其实就是一个 broker，只不过它除了具有一般 broker 的功能之外，还负责分区首领的选举。集群里第一个启动的 broker 通过在Zookeeper 里创建一个临时节点 /controller 让自己成为控制器。其他 broker 在启动时也会尝试创建这个节点，不过它们会收到一个“节点已存在”的异常，然后“意识”到控制器节点已存在，也就是说集群里已经...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/Kafka_chpater2kafka_chapter4/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1722284112"
+  data-df="ll"
+  
+>
+  Jul 30, 2024
+</time>
+
+              <h4 class="pt-0 my-2">Chapter4-消费者</h4>
+              <div class="text-muted">
+                <p>应用程序使用 KafkaConsumer 向 Kafka 订阅主题，并从订阅的主题上接收消息。
+
+Kafka消费者
+
+通过横向伸缩提升消费者的消费能力
+
+Kafka 消费者从属于消费者群组。一个群组里的消费者订阅的是同一个主题，每个消费者接收主题一部分分区的消息。往群组里增加消费者是横向伸缩消费能力的主要方式。Kafka 消费者经常会做一些高延迟的操作，比如把数据写到数据库或 HDFS，或者...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/Kafka_chpater2kafka_chapter3/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1722284112"
+  data-df="ll"
+  
+>
+  Jul 30, 2024
+</time>
+
+              <h4 class="pt-0 my-2">Chapter3-生产者</h4>
+              <div class="text-muted">
+                <p>kafka第三方客户端
+
+第三方客户端通过直接向Kafka网络端口发送适当的字节序列以实现从Kafka读取消息或者写入消息。
+
+构建kafka生产者
 
 
   
-    安装java依赖
+    确定包含的目标topic和发送内容
+  
+  
+    指定键或分区（可选）
+  
+  
+    指定key和value的序列化器
+  
+  
+    发送消息
 
-    1
-wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u412-b08/openlogic-openjdk-8u412-b08-linux-x64.tar.gz # 安装jdk8
     
   
-  
-    安装zookeeper依赖
 
+
+生产者的属性
+
+
+  必选属性
+    
 ...</p>
               </div>
             </div>

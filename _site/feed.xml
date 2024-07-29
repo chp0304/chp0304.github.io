@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>I am CHP</title>
   <subtitle>This is chp's blog!</subtitle>
-  <updated>2024-07-26T15:00:19+08:00</updated>
+  <updated>2024-07-29T20:16:36+08:00</updated>
   <author>
     <name>chp</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,141 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Chapter5-深入Kafka</title>
+    <link href="http://localhost:4000/posts/Kafka_chpater2kafka_chapter5/" rel="alternate" type="text/html" title="Chapter5-深入Kafka" />
+    <published>2024-07-30T04:15:12+08:00</published>
+  
+    <updated>2024-07-30T04:15:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Kafka_chpater2kafka_chapter5/</id>
+    <content src="http://localhost:4000/posts/Kafka_chpater2kafka_chapter5/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="Kafka" />
+    
+  
+
+  <summary>深入Kafka
+
+控制器
+
+控制器其实就是一个 broker，只不过它除了具有一般 broker 的功能之外，还负责分区首领的选举。集群里第一个启动的 broker 通过在Zookeeper 里创建一个临时节点 /controller 让自己成为控制器。其他 broker 在启动时也会尝试创建这个节点，不过它们会收到一个“节点已存在”的异常，然后“意识”到控制器节点已存在，也就是说集群里已经有一个控制器了。
+
+复制
+
+Kafka 使用主题来组织数据，每个主题被分为若干个分区，每个分区有多个副本。那些副本被保存在 broker 上，每个 broker 可以保存成百上千个属于不同主题和分区的副本。
+
+
+  首领副本（leader）：每个分区都有一个首领副本。为了保证一致性，所有生产者请求和消费者请求都会经过这个副本。
+  跟随者副本（follower）：首领以外的副本都是跟随者副本。跟随...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Chapter4-消费者</title>
+    <link href="http://localhost:4000/posts/Kafka_chpater2kafka_chapter4/" rel="alternate" type="text/html" title="Chapter4-消费者" />
+    <published>2024-07-30T04:15:12+08:00</published>
+  
+    <updated>2024-07-30T04:15:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Kafka_chpater2kafka_chapter4/</id>
+    <content src="http://localhost:4000/posts/Kafka_chpater2kafka_chapter4/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="Kafka" />
+    
+  
+
+  <summary>应用程序使用 KafkaConsumer 向 Kafka 订阅主题，并从订阅的主题上接收消息。
+
+Kafka消费者
+
+通过横向伸缩提升消费者的消费能力
+
+Kafka 消费者从属于消费者群组。一个群组里的消费者订阅的是同一个主题，每个消费者接收主题一部分分区的消息。往群组里增加消费者是横向伸缩消费能力的主要方式。Kafka 消费者经常会做一些高延迟的操作，比如把数据写到数据库或 HDFS，或者使用数据进行比较耗时的计算。在这些情况下，单个消费者无法跟上数据生成的速度，所以可以增加更多的消费者，让它们分担负载，每个消费者只处理部分分区的消息，这就是横向伸缩的主要手段。我们有必要为主题创建大量的分区，在负载增长时可以加入更多的消费者。不过要注意，不要让消费者的数量超过主题分区的数量，多余的消费者只会被闲置。第 2 章介绍了如何为主题选择合适的分区数量。
+
+消费者群组和分区再均衡
+
+
+  一...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Chapter3-生产者</title>
+    <link href="http://localhost:4000/posts/Kafka_chpater2kafka_chapter3/" rel="alternate" type="text/html" title="Chapter3-生产者" />
+    <published>2024-07-30T04:15:12+08:00</published>
+  
+    <updated>2024-07-30T04:15:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Kafka_chpater2kafka_chapter3/</id>
+    <content src="http://localhost:4000/posts/Kafka_chpater2kafka_chapter3/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="Kafka" />
+    
+  
+
+  <summary>kafka第三方客户端
+
+第三方客户端通过直接向Kafka网络端口发送适当的字节序列以实现从Kafka读取消息或者写入消息。
+
+构建kafka生产者
+
+
+  
+    确定包含的目标topic和发送内容
+  
+  
+    指定键或分区（可选）
+  
+  
+    指定key和value的序列化器
+  
+  
+    发送消息
+
+    
+  
+
+
+生产者的属性
+
+
+  必选属性
+    
+      bootstrap.servers：指定broker的address，格式为host：post
+      key.serializer:一个类用于序列化key
+      value.serializer:一个类用于序列化value
+    
+  
+  
+    其他属性
+
+    
+      
+        acks: 指定必须有多少个副本收到消息才会认为消息写入成功。
+
+  ...</summary>
+
+  </entry>
 
   
   <entry>

@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Kafka安装" />
+<meta property="og:title" content="Chapter3-生产者" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="安装kafka" />
-<meta property="og:description" content="安装kafka" />
-<link rel="canonical" href="http://localhost:4000/posts/Kafka_chpater2/" />
-<meta property="og:url" content="http://localhost:4000/posts/Kafka_chpater2/" />
+<meta name="description" content="kafka第三方客户端" />
+<meta property="og:description" content="kafka第三方客户端" />
+<link rel="canonical" href="http://localhost:4000/posts/Kafka_chpater2kafka_chapter3/" />
+<meta property="og:url" content="http://localhost:4000/posts/Kafka_chpater2kafka_chapter3/" />
 <meta property="og:site_name" content="I am CHP" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-07-26T22:53:12+08:00" />
+<meta property="article:published_time" content="2024-07-30T04:15:12+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Kafka安装" />
+<meta property="twitter:title" content="Chapter3-生产者" />
 <meta name="twitter:site" content="@chpchen1" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-26T22:53:12+08:00","datePublished":"2024-07-26T22:53:12+08:00","description":"安装kafka","headline":"Kafka安装","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/Kafka_chpater2/"},"url":"http://localhost:4000/posts/Kafka_chpater2/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-30T04:15:12+08:00","datePublished":"2024-07-30T04:15:12+08:00","description":"kafka第三方客户端","headline":"Chapter3-生产者","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/Kafka_chpater2kafka_chapter3/"},"url":"http://localhost:4000/posts/Kafka_chpater2kafka_chapter3/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Kafka安装 | I am CHP
+  <title>Chapter3-生产者 | I am CHP
   </title>
 
   <!--
@@ -414,7 +414,7 @@
         
           
             
-              <span>Kafka安装</span>
+              <span>Chapter3-生产者</span>
             
 
           
@@ -482,6 +482,79 @@
 
 
 
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
 
 <!-- Add header for code snippets -->
 
@@ -497,27 +570,6 @@
   
 
   
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
-  
 
   
   
@@ -552,6 +604,54 @@
 
       
     
+
+    
+  
+
+  
+  
+
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -565,11 +665,6 @@
     
 
     
-  
-
-  
-  
-
   
 
   
@@ -587,7 +682,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>Kafka安装</h1>
+    <h1 data-toc-skip>Chapter3-生产者</h1>
     
 
     <div class="post-meta text-muted">
@@ -604,13 +699,13 @@
 
 <time
   
-  data-ts="1722005592"
+  data-ts="1722284112"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jul 26, 2024
+  Jul 30, 2024
 </time>
 
       </span>
@@ -659,9 +754,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="79 words"
+  title="1513 words"
 >
-  <em>1 min</em> read</span>
+  <em>8 min</em> read</span>
 
         </div>
       </div>
@@ -669,48 +764,128 @@
   </header>
 
   <div class="content">
-    <h2 id="安装kafka"><span class="me-2">安装kafka</span><a href="#安装kafka" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+    <h3 id="kafka第三方客户端"><span class="me-2">kafka第三方客户端</span><a href="#kafka第三方客户端" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<h3 id="安装依赖"><span class="me-2">安装依赖</span><a href="#安装依赖" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<p>第三方客户端通过直接向Kafka网络端口发送适当的字节序列以实现从Kafka读取消息或者写入消息。</p>
+
+<h3 id="构建kafka生产者"><span class="me-2">构建kafka生产者</span><a href="#构建kafka生产者" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <ul>
   <li>
-    <p>安装java依赖</p>
-
-    <div class="language-shell highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u412-b08/openlogic-openjdk-8u412-b08-linux-x64.tar.gz <span class="c"># 安装jdk8</span>
-</pre></td></tr></tbody></table></code></div>    </div>
+    <p>确定包含的目标topic和发送内容</p>
   </li>
   <li>
-    <p>安装zookeeper依赖</p>
+    <p>指定键或分区（可选）</p>
+  </li>
+  <li>
+    <p>指定key和value的序列化器</p>
+  </li>
+  <li>
+    <p>发送消息</p>
 
-    <div class="language-shell highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>wget https://dlcdn.apache.org/zookeeper/zookeeper-3.8.4/apache-zookeeper-3.8.4-bin.tar.gz
-</pre></td></tr></tbody></table></code></div>    </div>
+    <p><a href="/../assets/pictures/image-20240726163023082.png" class="popup img-link  shimmer"><img src="/../assets/pictures/image-20240726163023082.png" alt="image-20240726163023082" loading="lazy"></a></p>
   </li>
 </ul>
 
-<h3 id="安装kafka-1"><span class="me-2">安装kafka</span><a href="#安装kafka-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<div class="language-shell highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>  wget https://dlcdn.apache.org/kafka/3.7.1/kafka_2.13-3.7.1.tgz
-</pre></td></tr></tbody></table></code></div></div>
-
-<h3 id="影响kafka性能的因素"><span class="me-2">影响kafka性能的因素</span><a href="#影响kafka性能的因素" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h4 id="生产者的属性"><span class="me-2">生产者的属性</span><a href="#生产者的属性" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <ul>
-  <li>磁盘吞吐量-影响生产者（建议选择固态硬盘）</li>
-  <li>磁盘容量</li>
-  <li>内存-影响消费者</li>
-  <li>网络延迟</li>
-  <li>CPU</li>
+  <li>必选属性
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">bootstrap.servers</code>：指定broker的address，格式为host：post</li>
+      <li><code class="language-plaintext highlighter-rouge">key.serializer</code>:一个类用于序列化key</li>
+      <li><code class="language-plaintext highlighter-rouge">value.serializer</code>:一个类用于序列化value</li>
+    </ul>
+  </li>
+  <li>
+    <p>其他属性</p>
+
+    <ul>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">acks</code>: 指定必须有多少个副本收到消息才会认为消息写入成功。</p>
+
+        <ul>
+          <li>acks=0表示不等待来自服务器的响应，能够支持最大速度发送消息，吞吐亮高。</li>
+          <li>acks=1表示收到首领节点的消息便认为消息写入成功。</li>
+          <li>acks=all表示收到参与复制的全部节点的消息时才认为消息发送成功，这个模式最安全但延迟高。</li>
+        </ul>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">buffer.memory</code>:该参数用来设置生产者内存缓冲区的大小，生产者用它缓冲要发送到服务器的消息。如果应用程序发送消息的速度超过发送到服务器的速度，会导致生产者空间不足。</p>
+      </li>
+      <li>
+        <p>` compression.type`:默认情况下，消息发送时不会被压缩。该参数可以设置为 snappy、gzip 或 lz4，它指定了</p>
+
+        <p>消息被发送给 broker 之前使用哪一种压缩算法进行压缩。</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">retries</code>: 生产者从服务器收到的错误有可能是临时性的错误（比如分区找不到首领）。在这种情况下，retries 参数的值决定了生产者可以重发消息的次数，如果达到这个次数，生产者会放弃重试并返回错误。</p>
+      </li>
+      <li>
+        <p>` batch.size`: 当有多个消息需要被发送到同一个分区时，生产者会把它们放在同一个批次里。该参数指定了一个批次可以使用的内存大小，按照字节数计算（而不是消息个数）。当批次被填满，批次里的所有消息会被发送出去。不过生产者并不一定都会等到批次被填满才发送，半满</p>
+
+        <p>的批次，甚至只包含一个消息的批次也有可能被发送。</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">linger.ms</code>: 该参数指定了生产者在发送批次之前等待更多消息加入批次的时间。KafkaProducer 会在批次填满或 linger.ms 达到上限时把批次发送出去。默认情况下，只要有可用的线程，生产者就会把消息发送出去，就算批次里只有一个消息。</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">client.id</code>:字符串类型，用于标识client</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">max.in.flight.requests.per.connection</code>:该参数指定了生产者在收到服务器响应之前可以发送多少个消息。它的值越高，就会占用越多的内存，不过也会提升吞吐量。</p>
+      </li>
+      <li>
+        <p>` timeout.ms、request.timeout.ms 和 metadata.fetch.timeout.ms`:request.timeout.ms 指定了生产者在发送数据时等待服务器返回响应的时间，metadata.fetch.timeout.ms 指定了生产者在获取元数据（比如目标分区的首领是谁）时等待服务器返回响应的时间。如果等待响应超时，那么生产者要么重试发送数据，要么返回一个错误（抛出异常或执行回调）。timeout.ms 指定了 broker 等待同步副本返回消息确认的时间，与</p>
+
+        <p>asks 的配置相匹配——如果在指定时间内没有收到同步副本的确认，那么 broker 就会返回一个错误。</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">client.id</code>:该参数指定了在调用 send() 方法或使用 partitionsFor() 方法获取元数据时生产者的阻塞时间。当生产者的发送缓冲区已满，或者没有可用的元数据时，这些方法就会阻塞。在阻塞时间达到 max.block.ms 时，生产者会抛出超时异常。</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">max.request.size</code>:该参数用于控制生产者发送的请求大小。它可以指能发送的单个消息的最大值，也可以指</p>
+
+        <p>单个请求里所有消息总的大小。</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">receive.buffer.bytes 和 send.buffer.bytes</code>:这两个参数分别指定了 TCP socket 接收和发送数据包的缓冲区大小。如果它们被设为-1，</p>
+
+        <p>就使用操作系统的默认值。</p>
+      </li>
+    </ul>
+  </li>
 </ul>
+
+<h4 id="生产者发送消息的方式"><span class="me-2">生产者发送消息的方式</span><a href="#生产者发送消息的方式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<ul>
+  <li>发送并忘记（fire-and-forget）：不关心消息是否能够正常到达broker</li>
+  <li>同步发送：调用get()方法进行等待方法返回</li>
+  <li>异步发送：指定回调函数在响应返回时调用</li>
+</ul>
+
+<h4 id="消息序列化"><span class="me-2">消息序列化</span><a href="#消息序列化" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<ul>
+  <li>使用已有的序列化器和反序列化器（JSON，Avro，Thrift，Protobuf）</li>
+  <li>使用Avro进行序列化
+    <ul>
+      <li>我们把所有写入数据需要用到的 schema 保存在注册表里，然后在记录里引用 schema 的标识符。负责读取数据的应用程序使用标识符从注册表里拉取 schema 来反序列化记录。序列化器和反序列化器分别负责处理 schema 的注册和拉取。</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="消息格式"><span class="me-2">消息格式</span><a href="#消息格式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<p>一条Kafka消息应该包含以下内容：</p>
+
+<ul>
+  <li>目标主题</li>
+  <li>键（可以为空）：可以用来作为消息的附加信息，也可以用来决定消息被写到主题的那个分区。拥有相同键的消息将被写到同一个分区。如果键值为 null，并且使用了默认的分区器，那么记录将被随机地发送到主题内各个可用的分区上。分区器使用轮询（Round Robin）算法将消息均衡地分布到各个分区上。[<em>注意</em>：只有在不改变主题分区数量的情况下，键与分区之间的映射才能保持不变。]</li>
+  <li>值</li>
+</ul>
+
 
   </div>
 
@@ -768,28 +943,28 @@
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Kafka%E5%AE%89%E8%A3%85%20-%20I%20am%20CHP&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FKafka_chpater2%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=Chapter3-%E7%94%9F%E4%BA%A7%E8%80%85%20-%20I%20am%20CHP&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FKafka_chpater2kafka_chapter3%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Kafka%E5%AE%89%E8%A3%85%20-%20I%20am%20CHP&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FKafka_chpater2%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Chapter3-%E7%94%9F%E4%BA%A7%E8%80%85%20-%20I%20am%20CHP&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FKafka_chpater2kafka_chapter3%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FKafka_chpater2%2F&text=Kafka%E5%AE%89%E8%A3%85%20-%20I%20am%20CHP" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FKafka_chpater2kafka_chapter3%2F&text=Chapter3-%E7%94%9F%E4%BA%A7%E8%80%85%20-%20I%20am%20CHP" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
 
       
 
-      <a href="https://service.weibo.com/share/share.php?title=Kafka%E5%AE%89%E8%A3%85%20-%20I%20am%20CHP&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FKafka_chpater2%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Weibo" aria-label="Weibo">
+      <a href="https://service.weibo.com/share/share.php?title=Chapter3-%E7%94%9F%E4%BA%A7%E8%80%85%20-%20I%20am%20CHP&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FKafka_chpater2kafka_chapter3%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Weibo" aria-label="Weibo">
         <i class="fa-fw fab fa-weibo"></i>
       </a>
     
@@ -980,19 +1155,19 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
   
 
   
@@ -1098,7 +1273,7 @@ Kafka 消费者从属于消费者群组。一个群组里的消费者订阅的�
         </article>
       
         <article class="col">
-          <a href="/posts/Kafka_chpater2kafka_chapter3/" class="post-preview card h-100">
+          <a href="/posts/Kafka_chpater2/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1110,44 +1285,30 @@ Kafka 消费者从属于消费者群组。一个群组里的消费者订阅的�
 
 <time
   
-  data-ts="1722284112"
+  data-ts="1722005592"
   data-df="ll"
   
 >
-  Jul 30, 2024
+  Jul 26, 2024
 </time>
 
-              <h4 class="pt-0 my-2">Chapter3-生产者</h4>
+              <h4 class="pt-0 my-2">Kafka安装</h4>
               <div class="text-muted">
-                <p>kafka第三方客户端
+                <p>安装kafka
 
-第三方客户端通过直接向Kafka网络端口发送适当的字节序列以实现从Kafka读取消息或者写入消息。
-
-构建kafka生产者
+安装依赖
 
 
   
-    确定包含的目标topic和发送内容
-  
-  
-    指定键或分区（可选）
-  
-  
-    指定key和value的序列化器
-  
-  
-    发送消息
+    安装java依赖
 
+    wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u412-b08/openlogic-openjdk-8u412-b08-linux-x64.tar.gz # 安装jdk8
     
   
+  
+    安装zookeeper依赖
 
-
-生产者的属性
-
-
-  必选属性
-    
-...</p>
+  ...</p>
               </div>
             </div>
           </a>
@@ -1168,21 +1329,21 @@ Kafka 消费者从属于消费者群组。一个群组里的消费者订阅的�
 
   
     <a
-      href="/posts/Kafka_chpater1/"
+      href="/posts/Kafka_chpater2/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>Kafka基本概念</p>
+      <p>Kafka安装</p>
     </a>
   
 
   
     <a
-      href="/posts/Kafka_chpater2kafka_chapter3/"
+      href="/posts/Kafka_chpater2kafka_chapter4/"
       class="btn btn-outline-primary"
       aria-label="Newer"
     >
-      <p>Chapter3-生产者</p>
+      <p>Chapter4-消费者</p>
     </a>
   
 </nav>
