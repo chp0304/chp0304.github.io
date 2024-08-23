@@ -1,6 +1,57 @@
 [
   
   {
+    "title": "docker入门",
+    "url": "/posts/docker%E5%85%A5%E9%97%A8/",
+    "categories": "Docker",
+    "tags": "Docker",
+    "date": "2024-08-23 13:05:12 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "docker常用命令docker images # 显示所有容器镜像docker ps -all # 列出所有的docker容器（所有状态）docker pull # 拉取镜像docker start|stop # 启动或者停止镜像docker rm docker_name # 删除容器docker rmi image_name # 删除镜像docker logs -f docker_nam...",
+    "content": "docker常用命令docker images # 显示所有容器镜像docker ps -all # 列出所有的docker容器（所有状态）docker pull # 拉取镜像docker start|stop # 启动或者停止镜像docker rm docker_name # 删除容器docker rmi image_name # 删除镜像docker logs -f docker_name # 查看docker容器日志docker run --name container_name image_name # 通过镜像启动容器，并为容器命名docker run -i -t -d -P -p -e key=value docker_name image command # -t 在新容器内制定一个伪终端或终端 -i 允许你对容器内的标准输入进行交互 -d 后台模型运行容器 -P 将容器内部使用的网络端口随机映射到我们使用的主机上 -p 指定映射的端口 -e key=value 设置环境变量docker exec -it docker_name command # 进入容器,使用该命令退出容器时不会导致容器的停止docker commit -m \"commit info\" -a=\"author\" container_id image_name # 创建一个新镜像docker tag Image_id image_name:new_tag容器的状态  created  restarting  running  removing  paused  exited  deaddocker镜像属性  Repository：表示镜像的仓库源  TAG：镜像的标签，如果不指定，默认tag为latest  IMAGE ID：镜像ID  CREATED：镜像创建时间  SIZE：镜像大小Dockerfile  Dockerfile的指令没执行一次都会在docker上新建一层，过多无意义的层，会造成镜像膨胀过大  可以使用&amp;&amp;连接符连接命令，这样只会创建一层镜像# 第一阶段：构建阶段 定制的镜像是基于FROM的镜像，后续的操作都是基于nginx操作FROM golang:1.19 AS builder# 设置工作目录WORKDIR /app# 复制 Go 源码到工作目录, COPY &lt;src&gt; &lt;dest&gt; src是宿主机的目录 dest是镜像的目录COPY . .# 编译 Go 应用程序RUN go build -o hello# 第二阶段：运行阶段 alpine Linux 是一个轻量级的 Linux 发行版镜像FROM alpine:latest # 设置工作目录WORKDIR /app# 从构建阶段复制编译后的二进制文件到运行阶段COPY --from=builder /app/hello .# 运行二进制文件CMD [\"./hello\"]  基于dockerfile创建镜像docker build -t image_name:image_tag context_path # 使用build命令创建镜像# 需要在dockerfile文件存放的目录下 执行该命令# context_path 用于指定上下文的目录，即宿主机的目录，用于传送文件到镜像目录"
+  },
+  
+  {
+    "title": "常用shell命令",
+    "url": "/posts/%E5%B8%B8%E7%94%A8shell%E5%91%BD%E4%BB%A4/",
+    "categories": "Shell",
+    "tags": "shell",
+    "date": "2024-08-22 15:21:12 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "curl命令curl 是一个用于在命令行中进行数据传输的工具，支持多种协议（如 HTTP、HTTPS、FTP 等）。它广泛用于测试和调试网络连接、下载文件、与 API 交互等。以下是一些常见的 curl 命令示例和用法：curl https://example.com # get方式请求数据curl -X post --data 'param=value' https://example.c...",
+    "content": "curl命令curl 是一个用于在命令行中进行数据传输的工具，支持多种协议（如 HTTP、HTTPS、FTP 等）。它广泛用于测试和调试网络连接、下载文件、与 API 交互等。以下是一些常见的 curl 命令示例和用法：curl https://example.com # get方式请求数据curl -X post --data 'param=value' https://example.com/ # post方式请求数据curl -X post -H \"Content-Type:application/json\" -d '{\"key1\":\"value1\",\"key1\":\"value1\"}' http://example.com # json 方式请求数据ls命令ls 用于展示文件夹中的内容ls # List files ls -l # list files one per linels -a # list all files,including hidden filesls -f # list all files,with trailing / added to directory names(在目录文件名后面添加'\\')ls -la ls -lh # long format list with size displayed using human-readable unitsls -lSR # long format list sorted by size recursivelyls -ltr # long format list of all files,sorted by modificaiton datels -d */ # only list directoriestail命令tail 用于展示文件后面的一部分内容tail -n count path/to/file  # show last 'count' line in filetail -n +count path/to/file  # show file content from a specific linetail -c count path/to/file # show a specific count of bytes from the end of a given filetail -f path/to/file # keep reading file util crtl + ccat命令cat 用于输出以及链接文件内容cat path/to/file # show the content of a filecat path/to/file path/to/file2 ...&gt; path/to/output_file # concatenate several files into an output file(overwrite the content of the output_file)cat path/to/file path/to/file2 ...&gt;&gt; path/to/output_file # concatenate several files into an output file(append the content of source file to the end of the output_file)cat -u file1 &gt; file2 # copy the contents of file1 to file2（'&gt;' means overwrite,'&gt;&gt;' means append to end of target file）cat - &gt; path/to/file # write stdin to a filegrep命令grep用于按照正则表达式搜索文件内容grep \"search_pattern\" path/to/file # search for a pattern within a filegrep -F|--fixed-strings \"exact_string\" path/to/file # search for an exact string(disabled regular expressions)grep -v|--invert-match \"search_pattern\" # search do not match patternps命令ps用于展示running processes的信息ps aux ｜ -ef # list all processesps -ef | grep string # search a process that matches a stringenv命令env用于查看以及设置环境变量env # show the environment variableenv variable=value # set a variableenv -u variable # remove a variabletop命令top用于查看running processes的动态实时信息top # start topnetstat命令netstat是一个网络统计工具，用于显示与网络相关的各种信息netstat df命令df用于显示文件系统的磁盘空间使用情况df # display all usage of filesystemdf -h # display all usage of filesystem(human readable)lsof命令lsof用于列出当前系统中所有打开的文件lsof # show all opened files,include socket,pipe,device fileslsof -u username # show opened files of this usernamedu命令du用于展示文件占用磁盘空间的量du -h path/to/directory # list the size of a directory and any subdirectoriesid命令id用于显示user和group信息id # show current user infoid username# show specifc user infochown命令chown用于更改文件的所属用户chown user path/to/filechown user:group path/to/filechmod命令chmod用于更改文件的访问权限# - rwx r-- r--# 第一个字符表示文件类型 '-' 表示普通文件 'd' 表示目录 'l'表示符号链接 's'表示套接字 'p'表示命名管道# 接下来的9个字符分为3组，每组3个字符，分别表示owner，group，other的权限# ---------------------# 权限类型# r 表示 读权限# w 表示 写权限# x 表示 执行权限# - 表示 无权限# ---------------------# 操作符# + 表示增加权限# - 表示删除权限# = 表示设置权限# ----------------------# 符号表示法# u 表示 user# g 表示 group# o 表示 others# a 表示 all# ---------------------# 同样也可以使用8进制来表示权限# 1表示执行权限# 2表示写权限# 4表示读权限# 因此上面的文件权限可以表示成# -744chmod u+x  # give the user who owns a file the right to execute it chmod u-x  # remove the user whoe owns a file the right to execute it digdig命令用于dns查询dig example.comhistory```shellhistory # lookup all commands list history with line numbershistory 20 # show the last 20 commands# 如果你不想重新输入过去的命令，可以在命令行号前添加!+line numbersu命令su用于切换用户su # switch to superusersu username # switch to speical usersu - username - C \"command\" # execute a command as another usertcpdumptcpdump用于网络包抓取sudo tcpdump -i eth0 host ipv4 -X # capture the traffic of a specific interface and a host with Ascii formatsudo tcpdump -i eth0 src host port 80 -X # capture the traffic of a specific interface,source host sudo tcpdump -i eth0 dst host port 80 -X # capture the traffic of a specific interface,source host "
+  },
+  
+  {
+    "title": "代理和反向代理",
+    "url": "/posts/proxy/",
+    "categories": "nginx",
+    "tags": "nginx",
+    "date": "2024-08-22 15:21:12 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "代理（Proxy）代理服务器是一个中间服务器，它位于客户端和目标服务器之间，代表客户端向目标服务器发送请求，并将目标服务器的响应返回给客户端。代理服务器的主要功能包括：  隐私保护：代理服务器可以隐藏客户端的真实 IP 地址，从而保护用户隐私。  访问控制：代理服务器可以限制用户访问某些网站或资源。  缓存：代理服务器可以缓存常用资源，从而加快访问速度并减少带宽消耗。  内容过滤：代理服务器...",
+    "content": "代理（Proxy）代理服务器是一个中间服务器，它位于客户端和目标服务器之间，代表客户端向目标服务器发送请求，并将目标服务器的响应返回给客户端。代理服务器的主要功能包括：  隐私保护：代理服务器可以隐藏客户端的真实 IP 地址，从而保护用户隐私。  访问控制：代理服务器可以限制用户访问某些网站或资源。  缓存：代理服务器可以缓存常用资源，从而加快访问速度并减少带宽消耗。  内容过滤：代理服务器可以过滤不良内容或广告。假设你在浏览器中访问一个网站，浏览器的请求首先发送到代理服务器，代理服务器再将请求转发给目标网站。目标网站的响应返回给代理服务器，代理服务器再将响应转发给浏览器。反向代理（Reverse Proxy）反向代理服务器也是一个中间服务器，但它位于目标服务器和客户端之间，代表目标服务器接收客户端的请求，并将请求转发给目标服务器。反向代理服务器的主要功能包括：  负载均衡：反向代理服务器可以将客户端的请求分发到多个后端服务器，从而实现负载均衡。  安全性：反向代理服务器可以隐藏后端服务器的真实 IP 地址，从而提高安全性。  SSL 终止：反向代理服务器可以处理 SSL 加密，从而减轻后端服务器的负担。  缓存：反向代理服务器可以缓存后端服务器的响应，从而加快响应速度并减少后端服务器的负载。假设你在浏览器中访问一个网站，浏览器的请求首先发送到反向代理服务器，反向代理服务器再将请求转发给后端服务器。后端服务器的响应返回给反向代理服务器，反向代理服务器再将响应转发给浏览器。复制Client &lt;--&gt; Reverse Proxy &lt;--&gt; Backend Server代理和反向代理的区别  方向：          代理：代理服务器代表客户端向目标服务器发送请求。      反向代理：反向代理服务器代表目标服务器接收客户端的请求。        用途：          代理：主要用于客户端的隐私保护、访问控制、内容过滤和缓存。      反向代理：主要用于负载均衡、安全性、SSL 终止和缓存。      "
+  },
+  
+  {
     "title": "Chapter5-深入Kafka",
     "url": "/posts/Kafka_chpater2kafka_chapter5/",
     "categories": "Kafka",

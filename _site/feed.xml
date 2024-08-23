@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>I am CHP</title>
   <subtitle>This is chp's blog!</subtitle>
-  <updated>2024-07-29T20:20:38+08:00</updated>
+  <updated>2024-08-23T13:13:06+08:00</updated>
   <author>
     <name>chp</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,122 @@
 
   
   <entry>
+    <title>docker入门</title>
+    <link href="http://localhost:4000/posts/docker%E5%85%A5%E9%97%A8/" rel="alternate" type="text/html" title="docker入门" />
+    <published>2024-08-23T13:05:12+08:00</published>
+  
+    <updated>2024-08-23T13:05:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/docker%E5%85%A5%E9%97%A8/</id>
+    <content src="http://localhost:4000/posts/docker%E5%85%A5%E9%97%A8/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="Docker" />
+    
+  
+
+  <summary>docker常用命令
+
+docker images # 显示所有容器镜像
+docker ps -all # 列出所有的docker容器（所有状态）
+docker pull # 拉取镜像
+docker start|stop # 启动或者停止镜像
+docker rm docker_name # 删除容器
+docker rmi image_name # 删除镜像
+docker logs -f docker_name # 查看docker容器日志
+docker run --name container_name image_name # 通过镜像启动容器，并为容器命名
+docker run -i -t -d -P -p -e key=value docker_name image command # -t 在新容器内制定一个伪终端或终端 -i 允许你对容器内的标准输入进行交互 -d 后台模型...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>常用shell命令</title>
+    <link href="http://localhost:4000/posts/%E5%B8%B8%E7%94%A8shell%E5%91%BD%E4%BB%A4/" rel="alternate" type="text/html" title="常用shell命令" />
+    <published>2024-08-22T15:21:12+08:00</published>
+  
+    <updated>2024-08-22T15:21:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/%E5%B8%B8%E7%94%A8shell%E5%91%BD%E4%BB%A4/</id>
+    <content src="http://localhost:4000/posts/%E5%B8%B8%E7%94%A8shell%E5%91%BD%E4%BB%A4/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="Shell" />
+    
+  
+
+  <summary>curl命令
+
+curl 是一个用于在命令行中进行数据传输的工具，支持多种协议（如 HTTP、HTTPS、FTP 等）。它广泛用于测试和调试网络连接、下载文件、与 API 交互等。以下是一些常见的 curl 命令示例和用法：
+
+curl https://example.com # get方式请求数据
+curl -X post --data &amp;#39;param=value&amp;#39; https://example.com/ # post方式请求数据
+curl -X post -H &amp;quot;Content-Type:application/json&amp;quot; -d &amp;#39;{&amp;quot;key1&amp;quot;:&amp;quot;value1&amp;quot;,&amp;quot;key1&amp;quot;:&amp;quot;value1&amp;quot;}&amp;#39; http://example.com # json 方式请求数据
+
+
+ls命令
+
+ls 用于展示文件夹中的内容
+
+ls # List files 
+ls -l # list file...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>代理和反向代理</title>
+    <link href="http://localhost:4000/posts/proxy/" rel="alternate" type="text/html" title="代理和反向代理" />
+    <published>2024-08-22T15:21:12+08:00</published>
+  
+    <updated>2024-08-22T15:21:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/proxy/</id>
+    <content src="http://localhost:4000/posts/proxy/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="nginx" />
+    
+  
+
+  <summary>代理（Proxy）
+
+代理服务器是一个中间服务器，它位于客户端和目标服务器之间，代表客户端向目标服务器发送请求，并将目标服务器的响应返回给客户端。代理服务器的主要功能包括：
+
+
+  隐私保护：代理服务器可以隐藏客户端的真实 IP 地址，从而保护用户隐私。
+  访问控制：代理服务器可以限制用户访问某些网站或资源。
+  缓存：代理服务器可以缓存常用资源，从而加快访问速度并减少带宽消耗。
+  内容过滤：代理服务器可以过滤不良内容或广告。
+
+
+假设你在浏览器中访问一个网站，浏览器的请求首先发送到代理服务器，代理服务器再将请求转发给目标网站。目标网站的响应返回给代理服务器，代理服务器再将响应转发给浏览器。
+
+反向代理（Reverse Proxy）
+
+反向代理服务器也是一个中间服务器，但它位于目标服务器和客户端之间，代表目标服务器接收客户端的请求，并将请求转发给目标服务器。反向代理服务器的主要功...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>Chapter5-深入Kafka</title>
     <link href="http://localhost:4000/posts/Kafka_chpater2kafka_chapter5/" rel="alternate" type="text/html" title="Chapter5-深入Kafka" />
     <published>2024-07-29T20:15:12+08:00</published>
   
-    <updated>2024-07-29T20:15:12+08:00</updated>
+    <updated>2024-07-29T20:21:01+08:00</updated>
   
     <id>http://localhost:4000/posts/Kafka_chpater2kafka_chapter5/</id>
     <content src="http://localhost:4000/posts/Kafka_chpater2kafka_chapter5/" />
@@ -60,7 +171,7 @@ Kafka 使用主题来组织数据，每个主题被分为若干个分区，每�
     <link href="http://localhost:4000/posts/Kafka_chpater2kafka_chapter4/" rel="alternate" type="text/html" title="Chapter4-消费者" />
     <published>2024-07-29T20:15:12+08:00</published>
   
-    <updated>2024-07-29T20:15:12+08:00</updated>
+    <updated>2024-07-29T20:21:01+08:00</updated>
   
     <id>http://localhost:4000/posts/Kafka_chpater2kafka_chapter4/</id>
     <content src="http://localhost:4000/posts/Kafka_chpater2kafka_chapter4/" />
@@ -86,172 +197,6 @@ Kafka 消费者从属于消费者群组。一个群组里的消费者订阅的�
 
 
   一...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Chapter3-生产者</title>
-    <link href="http://localhost:4000/posts/Kafka_chpater2kafka_chapter3/" rel="alternate" type="text/html" title="Chapter3-生产者" />
-    <published>2024-07-29T20:15:12+08:00</published>
-  
-    <updated>2024-07-29T20:15:12+08:00</updated>
-  
-    <id>http://localhost:4000/posts/Kafka_chpater2kafka_chapter3/</id>
-    <content src="http://localhost:4000/posts/Kafka_chpater2kafka_chapter3/" />
-    <author>
-      <name>chp</name>
-    </author>
-
-  
-    
-    <category term="Kafka" />
-    
-  
-
-  <summary>kafka第三方客户端
-
-第三方客户端通过直接向Kafka网络端口发送适当的字节序列以实现从Kafka读取消息或者写入消息。
-
-构建kafka生产者
-
-
-  
-    确定包含的目标topic和发送内容
-  
-  
-    指定键或分区（可选）
-  
-  
-    指定key和value的序列化器
-  
-  
-    发送消息
-
-    
-  
-
-
-生产者的属性
-
-
-  必选属性
-    
-      bootstrap.servers：指定broker的address，格式为host：post
-      key.serializer:一个类用于序列化key
-      value.serializer:一个类用于序列化value
-    
-  
-  
-    其他属性
-
-    
-      
-        acks: 指定必须有多少个副本收到消息才会认为消息写入成功。
-
-  ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Kafka安装</title>
-    <link href="http://localhost:4000/posts/Kafka_chpater2/" rel="alternate" type="text/html" title="Kafka安装" />
-    <published>2024-07-26T14:53:12+08:00</published>
-  
-    <updated>2024-07-26T14:53:12+08:00</updated>
-  
-    <id>http://localhost:4000/posts/Kafka_chpater2/</id>
-    <content src="http://localhost:4000/posts/Kafka_chpater2/" />
-    <author>
-      <name>chp</name>
-    </author>
-
-  
-    
-    <category term="Kafka" />
-    
-  
-
-  <summary>安装kafka
-
-安装依赖
-
-
-  
-    安装java依赖
-
-    wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u412-b08/openlogic-openjdk-8u412-b08-linux-x64.tar.gz # 安装jdk8
-    
-  
-  
-    安装zookeeper依赖
-
-    wget https://dlcdn.apache.org/zookeeper/zookeeper-3.8.4/apache-zookeeper-3.8.4-bin.tar.gz
-    
-  
-
-
-安装kafka
-
-  wget https://dlcdn.apache.org/kafka/3.7.1/kafka_2.13-3.7.1.tgz
-
-
-影响kafka性能的因素
-
-
-  磁盘吞吐量...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Kafka基本概念</title>
-    <link href="http://localhost:4000/posts/Kafka_chpater1/" rel="alternate" type="text/html" title="Kafka基本概念" />
-    <published>2024-07-26T10:55:12+08:00</published>
-  
-    <updated>2024-07-26T10:55:12+08:00</updated>
-  
-    <id>http://localhost:4000/posts/Kafka_chpater1/</id>
-    <content src="http://localhost:4000/posts/Kafka_chpater1/" />
-    <author>
-      <name>chp</name>
-    </author>
-
-  
-    
-    <category term="Kafka" />
-    
-  
-
-  <summary>基本概念
-
-消息和批次
-
-
-  kafka的消息由字节组成，消息里面的数据没有特别的格式或者含义。
-  效益可以有一个可选的元数据——key（键），用于为消息选择分区。
-  kafka消息是分批次写入的kafka，这些消息属于用一个主题或者分区。
-
-
-主题和分区
-
-
-  kafka消息通过主题进行分类，一个主题可以分为多个分区，同一个主题的不同分区可以分布在不同的服务器上。消息以FIFO的方式写入分区，以FIFO的方式读取。
-
-
-
-生产者和消费者
-
-
-  
-    生产者：发布一个消息到特定的主题上，但不关心特定消息会被写到那个分区上。
-  
-  
-    消费者：消费者订阅一个或多个主题，并按照消息生成的顺序读取他们。并通过一种元数据——偏移量来区分已经读取过的消息。
-  
-  
-    消费者群组：共同读取同一个主题的消费者构成一个消费者群组。群组保证每个分区只能被一个消费者使用...</summary>
 
   </entry>
 
