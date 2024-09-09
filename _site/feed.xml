@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>I am CHP</title>
   <subtitle>This is chp's blog!</subtitle>
-  <updated>2024-08-23T13:13:06+08:00</updated>
+  <updated>2024-09-09T23:47:52+08:00</updated>
   <author>
     <name>chp</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,90 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>go标准库-sort</title>
+    <link href="http://localhost:4000/posts/standard_sort/" rel="alternate" type="text/html" title="go标准库-sort" />
+    <published>2024-09-09T23:46:12+08:00</published>
+  
+    <updated>2024-09-09T23:46:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/standard_sort/</id>
+    <content src="http://localhost:4000/posts/standard_sort/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="go" />
+    
+  
+
+  <summary>该包用于给slice或者用户自定义的集合进行排序
+
+排序底层算法
+
+go的底层排序算法使用的是pattern-defeat quicksort(pdqSort)算法，PDQSort（Pattern-defeating quicksort）是一种现代的排序算法，它结合了快速排序（Quicksort）、插入排序（Insertion Sort）和堆排序（Heapsort）的优点，并通过模式识别和优化来避免最坏情况的性能退化。
+
+go source code
+
+pdqSort
+
+Types（类型）
+
+sort.Interface
+
+​	sort.Interface是Sort包中的一个接口，该接口定义了3个方法：
+
+
+  Len() int : 返回切片的长度
+  Less(i,j int) bool:  用于判断切片中两个值的大小
+  Swap(i,j int): 交换索引i和j处的元素
+
+...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>代理和反向代理</title>
+    <link href="http://localhost:4000/posts/proxy/" rel="alternate" type="text/html" title="代理和反向代理" />
+    <published>2024-08-23T13:13:12+08:00</published>
+  
+    <updated>2024-08-23T13:13:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/proxy/</id>
+    <content src="http://localhost:4000/posts/proxy/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="nginx" />
+    
+  
+
+  <summary>代理（Proxy）
+
+代理服务器是一个中间服务器，它位于客户端和目标服务器之间，代表客户端向目标服务器发送请求，并将目标服务器的响应返回给客户端。代理服务器的主要功能包括：
+
+
+  隐私保护：代理服务器可以隐藏客户端的真实 IP 地址，从而保护用户隐私。
+  访问控制：代理服务器可以限制用户访问某些网站或资源。
+  缓存：代理服务器可以缓存常用资源，从而加快访问速度并减少带宽消耗。
+  内容过滤：代理服务器可以过滤不良内容或广告。
+
+
+假设你在浏览器中访问一个网站，浏览器的请求首先发送到代理服务器，代理服务器再将请求转发给目标网站。目标网站的响应返回给代理服务器，代理服务器再将响应转发给浏览器。
+
+反向代理（Reverse Proxy）
+
+反向代理服务器也是一个中间服务器，但它位于目标服务器和客户端之间，代表目标服务器接收客户端的请求，并将请求转发给目标服务器。反向代理服务器的主要功...</summary>
+
+  </entry>
 
   
   <entry>
@@ -92,45 +176,6 @@ ls -l # list file...</summary>
 
   
   <entry>
-    <title>代理和反向代理</title>
-    <link href="http://localhost:4000/posts/proxy/" rel="alternate" type="text/html" title="代理和反向代理" />
-    <published>2024-08-22T15:21:12+08:00</published>
-  
-    <updated>2024-08-22T15:21:12+08:00</updated>
-  
-    <id>http://localhost:4000/posts/proxy/</id>
-    <content src="http://localhost:4000/posts/proxy/" />
-    <author>
-      <name>chp</name>
-    </author>
-
-  
-    
-    <category term="nginx" />
-    
-  
-
-  <summary>代理（Proxy）
-
-代理服务器是一个中间服务器，它位于客户端和目标服务器之间，代表客户端向目标服务器发送请求，并将目标服务器的响应返回给客户端。代理服务器的主要功能包括：
-
-
-  隐私保护：代理服务器可以隐藏客户端的真实 IP 地址，从而保护用户隐私。
-  访问控制：代理服务器可以限制用户访问某些网站或资源。
-  缓存：代理服务器可以缓存常用资源，从而加快访问速度并减少带宽消耗。
-  内容过滤：代理服务器可以过滤不良内容或广告。
-
-
-假设你在浏览器中访问一个网站，浏览器的请求首先发送到代理服务器，代理服务器再将请求转发给目标网站。目标网站的响应返回给代理服务器，代理服务器再将响应转发给浏览器。
-
-反向代理（Reverse Proxy）
-
-反向代理服务器也是一个中间服务器，但它位于目标服务器和客户端之间，代表目标服务器接收客户端的请求，并将请求转发给目标服务器。反向代理服务器的主要功...</summary>
-
-  </entry>
-
-  
-  <entry>
     <title>Chapter5-深入Kafka</title>
     <link href="http://localhost:4000/posts/Kafka_chpater2kafka_chapter5/" rel="alternate" type="text/html" title="Chapter5-深入Kafka" />
     <published>2024-07-29T20:15:12+08:00</published>
@@ -162,41 +207,6 @@ Kafka 使用主题来组织数据，每个主题被分为若干个分区，每�
 
   首领副本（leader）：每个分区都有一个首领副本。为了保证一致性，所有生产者请求和消费者请求都会经过这个副本。
   跟随者副本（follower）：首领以外的副本都是跟随者副本。跟随...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Chapter4-消费者</title>
-    <link href="http://localhost:4000/posts/Kafka_chpater2kafka_chapter4/" rel="alternate" type="text/html" title="Chapter4-消费者" />
-    <published>2024-07-29T20:15:12+08:00</published>
-  
-    <updated>2024-07-29T20:21:01+08:00</updated>
-  
-    <id>http://localhost:4000/posts/Kafka_chpater2kafka_chapter4/</id>
-    <content src="http://localhost:4000/posts/Kafka_chpater2kafka_chapter4/" />
-    <author>
-      <name>chp</name>
-    </author>
-
-  
-    
-    <category term="Kafka" />
-    
-  
-
-  <summary>应用程序使用 KafkaConsumer 向 Kafka 订阅主题，并从订阅的主题上接收消息。
-
-Kafka消费者
-
-通过横向伸缩提升消费者的消费能力
-
-Kafka 消费者从属于消费者群组。一个群组里的消费者订阅的是同一个主题，每个消费者接收主题一部分分区的消息。往群组里增加消费者是横向伸缩消费能力的主要方式。Kafka 消费者经常会做一些高延迟的操作，比如把数据写到数据库或 HDFS，或者使用数据进行比较耗时的计算。在这些情况下，单个消费者无法跟上数据生成的速度，所以可以增加更多的消费者，让它们分担负载，每个消费者只处理部分分区的消息，这就是横向伸缩的主要手段。我们有必要为主题创建大量的分区，在负载增长时可以加入更多的消费者。不过要注意，不要让消费者的数量超过主题分区的数量，多余的消费者只会被闲置。第 2 章介绍了如何为主题选择合适的分区数量。
-
-消费者群组和分区再均衡
-
-
-  一...</summary>
 
   </entry>
 
