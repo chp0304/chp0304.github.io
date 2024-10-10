@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>I am CHP</title>
   <subtitle>This is chp's blog!</subtitle>
-  <updated>2024-09-09T23:47:52+08:00</updated>
+  <updated>2024-10-10T20:52:35+08:00</updated>
   <author>
     <name>chp</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,41 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>channel内部实现</title>
+    <link href="http://localhost:4000/posts/channel/" rel="alternate" type="text/html" title="channel内部实现" />
+    <published>2024-10-10T20:42:12+08:00</published>
+  
+    <updated>2024-10-10T20:42:12+08:00</updated>
+  
+    <id>http://localhost:4000/posts/channel/</id>
+    <content src="http://localhost:4000/posts/channel/" />
+    <author>
+      <name>chp</name>
+    </author>
+
+  
+    
+    <category term="go" />
+    
+  
+
+  <summary>源码：https://cs.opensource.google/go/go/+/refs/tags/go1.23.2:src/runtime/chan.go
+
+channel内部结构
+
+type hchan struct {
+	qcount   uint           // total data in the queue
+	dataqsiz uint           // size of the circular queue
+	buf      unsafe.Pointer // points to an array of dataqsiz elements
+	elemsize uint16
+	closed   uint32
+	timer    *timer // timer feeding this chan
+	elemtype *_type // element typ...</summary>
+
+  </entry>
 
   
   <entry>
@@ -69,7 +104,7 @@ sort.Interface
     <link href="http://localhost:4000/posts/proxy/" rel="alternate" type="text/html" title="代理和反向代理" />
     <published>2024-08-23T13:13:12+08:00</published>
   
-    <updated>2024-08-23T13:13:12+08:00</updated>
+    <updated>2024-09-09T23:49:50+08:00</updated>
   
     <id>http://localhost:4000/posts/proxy/</id>
     <content src="http://localhost:4000/posts/proxy/" />
@@ -171,42 +206,6 @@ ls 用于展示文件夹中的内容
 
 ls # List files 
 ls -l # list file...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Chapter5-深入Kafka</title>
-    <link href="http://localhost:4000/posts/Kafka_chpater2kafka_chapter5/" rel="alternate" type="text/html" title="Chapter5-深入Kafka" />
-    <published>2024-07-29T20:15:12+08:00</published>
-  
-    <updated>2024-07-29T20:21:01+08:00</updated>
-  
-    <id>http://localhost:4000/posts/Kafka_chpater2kafka_chapter5/</id>
-    <content src="http://localhost:4000/posts/Kafka_chpater2kafka_chapter5/" />
-    <author>
-      <name>chp</name>
-    </author>
-
-  
-    
-    <category term="Kafka" />
-    
-  
-
-  <summary>深入Kafka
-
-控制器
-
-控制器其实就是一个 broker，只不过它除了具有一般 broker 的功能之外，还负责分区首领的选举。集群里第一个启动的 broker 通过在Zookeeper 里创建一个临时节点 /controller 让自己成为控制器。其他 broker 在启动时也会尝试创建这个节点，不过它们会收到一个“节点已存在”的异常，然后“意识”到控制器节点已存在，也就是说集群里已经有一个控制器了。
-
-复制
-
-Kafka 使用主题来组织数据，每个主题被分为若干个分区，每个分区有多个副本。那些副本被保存在 broker 上，每个 broker 可以保存成百上千个属于不同主题和分区的副本。
-
-
-  首领副本（leader）：每个分区都有一个首领副本。为了保证一致性，所有生产者请求和消费者请求都会经过这个副本。
-  跟随者副本（follower）：首领以外的副本都是跟随者副本。跟随...</summary>
 
   </entry>
 

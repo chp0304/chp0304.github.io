@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="代理和反向代理" />
+<meta property="og:title" content="channel内部实现" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="代理（Proxy）" />
-<meta property="og:description" content="代理（Proxy）" />
-<link rel="canonical" href="http://localhost:4000/posts/proxy/" />
-<meta property="og:url" content="http://localhost:4000/posts/proxy/" />
+<meta name="description" content="源码：https://cs.opensource.google/go/go/+/refs/tags/go1.23.2:src/runtime/chan.go" />
+<meta property="og:description" content="源码：https://cs.opensource.google/go/go/+/refs/tags/go1.23.2:src/runtime/chan.go" />
+<link rel="canonical" href="http://localhost:4000/posts/channel/" />
+<meta property="og:url" content="http://localhost:4000/posts/channel/" />
 <meta property="og:site_name" content="I am CHP" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-08-23T13:13:12+08:00" />
+<meta property="article:published_time" content="2024-10-10T20:42:12+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="代理和反向代理" />
+<meta property="twitter:title" content="channel内部实现" />
 <meta name="twitter:site" content="@chpchen1" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-09T23:49:50+08:00","datePublished":"2024-08-23T13:13:12+08:00","description":"代理（Proxy）","headline":"代理和反向代理","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/proxy/"},"url":"http://localhost:4000/posts/proxy/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-10-10T20:42:12+08:00","datePublished":"2024-10-10T20:42:12+08:00","description":"源码：https://cs.opensource.google/go/go/+/refs/tags/go1.23.2:src/runtime/chan.go","headline":"channel内部实现","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/channel/"},"url":"http://localhost:4000/posts/channel/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>代理和反向代理 | I am CHP
+  <title>channel内部实现 | I am CHP
   </title>
 
   <!--
@@ -414,7 +414,7 @@
         
           
             
-              <span>代理和反向代理</span>
+              <span>channel内部实现</span>
             
 
           
@@ -482,6 +482,158 @@
 
 
 
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
 
 <!-- Add header for code snippets -->
 
@@ -497,37 +649,10 @@
   
 
   
-    
-    
 
-    
-      
-        
-        
-      
+  
+  
 
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
   
 
   
@@ -552,13 +677,30 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
-  
-
-  
-  
-
   
 
   
@@ -576,7 +718,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>代理和反向代理</h1>
+    <h1 data-toc-skip>channel内部实现</h1>
     
 
     <div class="post-meta text-muted">
@@ -593,41 +735,18 @@
 
 <time
   
-  data-ts="1724389992"
+  data-ts="1728564132"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Aug 23, 2024
+  Oct 10, 2024
 </time>
 
       </span>
 
       <!-- lastmod date -->
-      
-        <span>
-          Updated
-          <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1725896990"
-  data-df="ll"
-  
-    data-bs-toggle="tooltip" data-bs-placement="bottom"
-  
->
-  Sep  9, 2024
-</time>
-
-        </span>
       
 
       
@@ -671,9 +790,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="729 words"
+  title="545 words"
 >
-  <em>4 min</em> read</span>
+  <em>3 min</em> read</span>
 
         </div>
       </div>
@@ -681,54 +800,100 @@
   </header>
 
   <div class="content">
-    <h2 id="代理proxy"><span class="me-2">代理（Proxy）</span><a href="#代理proxy" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+    <p><strong>源码</strong>：https://cs.opensource.google/go/go/+/refs/tags/go1.23.2:src/runtime/chan.go</p>
 
-<p>代理服务器是一个中间服务器，它位于客户端和目标服务器之间，代表客户端向目标服务器发送请求，并将目标服务器的响应返回给客户端。代理服务器的主要功能包括：</p>
+<h4 id="channel内部结构"><span class="me-2">channel内部结构</span><a href="#channel内部结构" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<ol>
-  <li><strong>隐私保护</strong>：代理服务器可以隐藏客户端的真实 IP 地址，从而保护用户隐私。</li>
-  <li><strong>访问控制</strong>：代理服务器可以限制用户访问某些网站或资源。</li>
-  <li><strong>缓存</strong>：代理服务器可以缓存常用资源，从而加快访问速度并减少带宽消耗。</li>
-  <li><strong>内容过滤</strong>：代理服务器可以过滤不良内容或广告。</li>
-</ol>
-
-<p>假设你在浏览器中访问一个网站，浏览器的请求首先发送到代理服务器，代理服务器再将请求转发给目标网站。目标网站的响应返回给代理服务器，代理服务器再将响应转发给浏览器。</p>
-
-<h2 id="反向代理reverse-proxy"><span class="me-2">反向代理（Reverse Proxy）</span><a href="#反向代理reverse-proxy" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>反向代理服务器也是一个中间服务器，但它位于目标服务器和客户端之间，代表目标服务器接收客户端的请求，并将请求转发给目标服务器。反向代理服务器的主要功能包括：</p>
-
-<ol>
-  <li><strong>负载均衡</strong>：反向代理服务器可以将客户端的请求分发到多个后端服务器，从而实现负载均衡。</li>
-  <li><strong>安全性</strong>：反向代理服务器可以隐藏后端服务器的真实 IP 地址，从而提高安全性。</li>
-  <li><strong>SSL 终止</strong>：反向代理服务器可以处理 SSL 加密，从而减轻后端服务器的负担。</li>
-  <li><strong>缓存</strong>：反向代理服务器可以缓存后端服务器的响应，从而加快响应速度并减少后端服务器的负载。</li>
-</ol>
-
-<p>假设你在浏览器中访问一个网站，浏览器的请求首先发送到反向代理服务器，反向代理服务器再将请求转发给后端服务器。后端服务器的响应返回给反向代理服务器，反向代理服务器再将响应转发给浏览器。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
-        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>复制Client &lt;--&gt; Reverse Proxy &lt;--&gt; Backend Server
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="k">type</span> <span class="n">hchan</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">qcount</span>   <span class="kt">uint</span>           <span class="c">// total data in the queue</span>
+	<span class="n">dataqsiz</span> <span class="kt">uint</span>           <span class="c">// size of the circular queue</span>
+	<span class="n">buf</span>      <span class="n">unsafe</span><span class="o">.</span><span class="n">Pointer</span> <span class="c">// points to an array of dataqsiz elements</span>
+	<span class="n">elemsize</span> <span class="kt">uint16</span>
+	<span class="n">closed</span>   <span class="kt">uint32</span>
+	<span class="n">timer</span>    <span class="o">*</span><span class="n">timer</span> <span class="c">// timer feeding this chan</span>
+	<span class="n">elemtype</span> <span class="o">*</span><span class="n">_type</span> <span class="c">// element type</span>
+	<span class="n">sendx</span>    <span class="kt">uint</span>   <span class="c">// send index</span>
+	<span class="n">recvx</span>    <span class="kt">uint</span>   <span class="c">// receive index</span>
+	<span class="n">recvq</span>    <span class="n">waitq</span>  <span class="c">// list of recv waiters</span>
+	<span class="n">sendq</span>    <span class="n">waitq</span>  <span class="c">// list of send waiters</span>
+
+	<span class="c">// lock protects all fields in hchan, as well as several</span>
+	<span class="c">// fields in sudogs blocked on this channel.</span>
+	<span class="c">//</span>
+	<span class="c">// Do not change another G's status while holding this lock</span>
+	<span class="c">// (in particular, do not ready a G), as this can deadlock</span>
+	<span class="c">// with stack shrinking.</span>
+	<span class="n">lock</span> <span class="n">mutex</span>
+<span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="代理和反向代理的区别"><span class="me-2">代理和反向代理的区别</span><a href="#代理和反向代理的区别" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<ul>
+  <li>qcount : 表示当前队列中存储了多少个元素</li>
+  <li>dataqsiz：表示环形队列的大小（队列的最大容量）</li>
+  <li>buf：指向环形队列所在内存的起始位置</li>
+  <li>elemsize：每个元素占用多少字节</li>
+  <li>closed：表示当前channel是否close掉</li>
+  <li>sendx：发送队列索引（循环队列队尾）</li>
+  <li>recvx：接收队列索引（循环队列队头）</li>
+  <li>recvq：一个goroutine接收者队列，链表存储</li>
+  <li>
+    <p>sendq：一个goroutine发送者队列，链表存储</p>
+  </li>
+  <li>lock：锁</li>
+</ul>
 
-<ol>
-  <li><strong>方向</strong>：
-    <ul>
-      <li>代理：代理服务器代表客户端向目标服务器发送请求。</li>
-      <li>反向代理：反向代理服务器代表目标服务器接收客户端的请求。</li>
-    </ul>
-  </li>
-  <li><strong>用途</strong>：
-    <ul>
-      <li>代理：主要用于客户端的隐私保护、访问控制、内容过滤和缓存。</li>
-      <li>反向代理：主要用于负载均衡、安全性、SSL 终止和缓存。</li>
-    </ul>
-  </li>
-</ol>
+<h4 id="send过程"><span class="me-2">send过程</span><a href="#send过程" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<p>向channel发送的数据的过程如下：</p>
+
+<ul>
+  <li>首先获取lock，防止多个goroutine同时操作该hchan；</li>
+  <li>接着判断recvq是否为空；</li>
+  <li>若recvq不为空，说明存在等待接收的goroutine；直接将要发送的数据发送给队头的goroutine处理；</li>
+  <li>若recvq为空，判断channel buf是否已满；</li>
+  <li>若buffer不为满，将要发送的数据储存到环形buffer中；</li>
+  <li>若buffer为满，则阻塞该goroutine，\(\color{red}\textbf{并通过gopark释放lock，以便其他goroutine操作}\)</li>
+</ul>
+
+<p><a href="/../assets/pictures/企业微信截图_300f0126-ce71-4947-a1f9-ce12a8fc60c3.png" class="popup img-link  shimmer"><img src="/../assets/pictures/企业微信截图_300f0126-ce71-4947-a1f9-ce12a8fc60c3.png" alt="企业微信截图_300f0126-ce71-4947-a1f9-ce12a8fc60c3" style="zoom:20%;" loading="lazy"></a></p>
+
+<h4 id="recv过程"><span class="me-2">recv过程</span><a href="#recv过程" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<p>从channel接收的数据的过程如下：</p>
+
+<ul>
+  <li>首先获取lock，防止多个goroutine同时操作该hchan；</li>
+  <li>接着判断sendq是否为空；</li>
+  <li>若sendq不为空，说明存在等待发送的goroutine；直接从队头的goroutine中获取数据；</li>
+  <li>若sendq为空，判断channel buf是否已满；</li>
+  <li>若buffer不为满，从环形buffer中读取数据；</li>
+  <li>若buffer为满，则阻塞该goroutine，\(\color{red}\textbf{并通过gopark释放lock，以便其他goroutine操作}\)</li>
+</ul>
+
+<p><a href="/../assets/pictures/企业微信截图_3e954708-1135-42aa-9b09-263291c98b5f.png" class="popup img-link  shimmer"><img src="/../assets/pictures/企业微信截图_3e954708-1135-42aa-9b09-263291c98b5f.png" alt="企业微信截图_3e954708-1135-42aa-9b09-263291c98b5f" style="zoom:21%;" loading="lazy"></a></p>
 
   </div>
 
@@ -738,7 +903,7 @@
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/nginx/">nginx</a>
+          <a href="/categories/go/">go</a>
       </div>
     
 
@@ -748,9 +913,9 @@
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/nginx/"
+            href="/tags/go/"
             class="post-tag no-text-decoration"
-          >nginx</a>
+          >go</a>
         
       </div>
     
@@ -786,28 +951,28 @@
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%20-%20I%20am%20CHP&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fproxy%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=channel%E5%86%85%E9%83%A8%E5%AE%9E%E7%8E%B0%20-%20I%20am%20CHP&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fchannel%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%20-%20I%20am%20CHP&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fproxy%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=channel%E5%86%85%E9%83%A8%E5%AE%9E%E7%8E%B0%20-%20I%20am%20CHP&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fchannel%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fproxy%2F&text=%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%20-%20I%20am%20CHP" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fchannel%2F&text=channel%E5%86%85%E9%83%A8%E5%AE%9E%E7%8E%B0%20-%20I%20am%20CHP" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
 
       
 
-      <a href="https://service.weibo.com/share/share.php?title=%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%20-%20I%20am%20CHP&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fproxy%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Weibo" aria-label="Weibo">
+      <a href="https://service.weibo.com/share/share.php?title=channel%E5%86%85%E9%83%A8%E5%AE%9E%E7%8E%B0%20-%20I%20am%20CHP&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fchannel%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Weibo" aria-label="Weibo">
         <i class="fa-fw fab fa-weibo"></i>
       </a>
     
@@ -1099,11 +1264,6 @@
 
 
 
-  <section id="toc-wrapper" class="d-none ps-0 pe-4">
-    <h2 class="panel-heading ps-3 mb-2">Contents</h2>
-    <nav id="toc"></nav>
-  </section>
-
 
             
           </aside>
@@ -1141,6 +1301,18 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
 
 
@@ -1151,6 +1323,46 @@
 
 
 
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">Further Reading</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/standard_sort/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725896772"
+  data-df="ll"
+  
+>
+  Sep  9, 2024
+</time>
+
+              <h4 class="pt-0 my-2">go标准库-sort</h4>
+              <div class="text-muted">
+                <p>该包用于给slice或者用户自定义的集合进行排序
+
+排序底层算法
+
+go的底层排序算法使用的是pattern-defeat quicksort(pdqSort)算法，PDQSort（Pattern-defeating quicksort）是一种现代的排序算法，它结合了快速排序（Quicksort）、插入排序（Insertion Sort）和堆排序（Heapsort）的优点，并通过模式识别和优...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
 
 
             
@@ -1163,22 +1375,18 @@
 
   
     <a
-      href="/posts/docker%E5%85%A5%E9%97%A8/"
+      href="/posts/standard_sort/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>docker入门</p>
+      <p>go标准库-sort</p>
     </a>
   
 
   
-    <a
-      href="/posts/standard_sort/"
-      class="btn btn-outline-primary"
-      aria-label="Newer"
-    >
-      <p>go标准库-sort</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="Newer">
+      <p>-</p>
+    </div>
   
 </nav>
 
@@ -1625,16 +1833,9 @@
 
   
 
-  
-    
-
-    
-
-  
 
 
-
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/en.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js,npm/tocbot@4.27.20/dist/tocbot.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/en.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
 
 
 

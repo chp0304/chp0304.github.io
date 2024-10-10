@@ -1340,7 +1340,7 @@ func TestStrings(t *testing.T) {
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/standard_sort/">go标准库-sort</a>
+          <a href="/posts/channel/">channel内部实现</a>
         </li>
       
         
@@ -1348,6 +1348,13 @@ func TestStrings(t *testing.T) {
         
         <li class="text-truncate lh-lg">
           <a href="/posts/proxy/">代理和反向代理</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/standard_sort/">go标准库-sort</a>
         </li>
       
         
@@ -1362,13 +1369,6 @@ func TestStrings(t *testing.T) {
         
         <li class="text-truncate lh-lg">
           <a href="/posts/%E5%B8%B8%E7%94%A8shell%E5%91%BD%E4%BB%A4/">常用shell命令</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Kafka_chpater1/">Kafka基本概念</a>
         </li>
       
     </ul>
@@ -1407,10 +1407,6 @@ func TestStrings(t *testing.T) {
     
     
     
-      
-        
-        
-
   
     
     
@@ -1420,13 +1416,6 @@ func TestStrings(t *testing.T) {
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1449,6 +1438,52 @@ func TestStrings(t *testing.T) {
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1464,6 +1499,13 @@ func TestStrings(t *testing.T) {
         
         
 
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1510,6 +1552,9 @@ func TestStrings(t *testing.T) {
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/docker/">Docker</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/go/">go</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-standard-library/">go_standard_library</a>
@@ -1575,6 +1620,17 @@ func TestStrings(t *testing.T) {
 
   
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
 
@@ -1584,6 +1640,69 @@ func TestStrings(t *testing.T) {
 
 
 
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">Further Reading</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/channel/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1728564132"
+  data-df="ll"
+  
+>
+  Oct 10, 2024
+</time>
+
+              <h4 class="pt-0 my-2">channel内部实现</h4>
+              <div class="text-muted">
+                <p>源码：https://cs.opensource.google/go/go/+/refs/tags/go1.23.2:src/runtime/chan.go
+
+channel内部结构
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+type hchan struct {
+	qcount   uint           // to...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
 
 
             
@@ -1605,9 +1724,13 @@ func TestStrings(t *testing.T) {
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="Newer">
-      <p>-</p>
-    </div>
+    <a
+      href="/posts/channel/"
+      class="btn btn-outline-primary"
+      aria-label="Newer"
+    >
+      <p>channel内部实现</p>
+    </a>
   
 </nav>
 
@@ -1759,10 +1882,6 @@ func TestStrings(t *testing.T) {
     
     
     
-      
-        
-        
-
   
     
     
@@ -1772,13 +1891,6 @@ func TestStrings(t *testing.T) {
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1801,6 +1913,52 @@ func TestStrings(t *testing.T) {
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1816,6 +1974,13 @@ func TestStrings(t *testing.T) {
         
         
 
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1862,6 +2027,9 @@ func TestStrings(t *testing.T) {
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/docker/">Docker</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/go/">go</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-standard-library/">go_standard_library</a>
